@@ -1,6 +1,7 @@
+
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Verdana;
 }
 
 #main {
@@ -18,14 +19,16 @@ body {
   justify-content: space-between;
   align-items: center;
   padding-left: 15px;
-  animation: color-change 7s infinite;
+  /*animation: color-change 7s infinite;*/
 }
 
+
 @keyframes color-change {
-  0% {background-color: #f3af27a8;}
-  33% {background-color: #d63831a8;}
-  66% {background-color: #5d0f2ca8;}
-  100% {background-color: #f3af27a8;}
+  0% {background-color: #ffbf3ec0;}
+  25% {background-color: #ff2151c0;}
+  50% {background-color: #ffaa00c0;}
+  75% {background-color: #cd28ffc0;}
+  100% {background-color: #ffbf3ec0;}
 }
 
 .navbar-brand {
@@ -36,8 +39,10 @@ body {
 }
 
 .navbar-brand:hover{
-  font-size: 150%;
-  cursor: grab;
+  text-shadow: 0px 0px 1rem #ffffff;
+  font-size: 140%;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
 }
 
 .navbar-links {
@@ -71,14 +76,14 @@ body {
 
 .navbar-links a:hover {
   background-color: transparent;
-  color: rgb(240, 240, 240, 0.9);;
+  color: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 0px 10px 1px rgb(240, 240, 240, 0.9),
               inset 0px 0px 10px 1px rgb(240, 240, 240, 0.9);
 }
 
 #header video {
   position: absolute;
-  z-index: -1;
+  z-index: -99;
   height: 100%;
   width: 100%;
   max-width: 100%;
@@ -88,49 +93,86 @@ body {
   object-fit: cover;
 }
 
+#header .overlay {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+#header {
+  overflow: hidden;
+  position: relative;
+  background-image: linear-gradient(top, #f8873c, #f36f9b);
+}
+
 #heading {
   position: absolute;
   height: auto;
   width: 100%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-60%);
   text-align: center;
 }
 
 #heading #head {
+  font-family: 'MinecraftiaRegular';
   text-align: center;
-  font-size: 5rem;
+  font-size: 4rem;
   color: white;
+  letter-spacing: 5px;
   margin: 0;
-  animation: head-color-change 7s infinite;
-}
-
-@keyframes head-color-change {
-  0% {
-    text-shadow: 0px 0px 1rem #f3af27;}
-  33% {
-    text-shadow: 0px 0px 1rem #d63831;}
-  66% {
-    text-shadow: 0px 0px 1rem #5d0f2c;}
-  100% {
-    text-shadow: 0px 0px 1rem #f3af27;}
+  
 }
 
 #header #until {
   color: white;
 }
 
-@keyframes until-color-change {
-  0% {
-    color: #f3af27;} 
-  33% {
-    color: #d63831;}
-  66% {
-    color: #5d0f2c;}
-  100% {
-    color: #f3af27;}
+#header #return {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(
+      to right,
+      #ffbf3e 0%,
+      #ff2151 33%,
+      #ffaa00 66%,
+      #cd28ff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: head-color-change 15s ease-in-out infinite alternate;
 }
 
-#header #return {
+@keyframes head-color-change {
+  0% {
+    text-shadow: 0px 0px 1rem #ffbf3e;
+    background-position: 0% 50%;}
+  33% {
+    text-shadow: 0px 0px 1rem #ff0d00;}
+  66% {
+    text-shadow: 0px 0px 1rem #ffaa00;}
+  100% {
+    text-shadow: 0px 0px 1rem #cd28ff;
+    background-position: 100% 50%}
+}
+
+#header #revivan {
+  position: absolute;
+  font-weight: bold;
   color: white;
+  overflow-x: hidden;
+  animation: moveRight 7s linear infinite;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translate(-9rem, -2.3rem);
+  }
+  100% {
+    transform: translate(90rem, -2.3rem);
+  }
 }
