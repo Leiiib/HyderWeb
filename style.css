@@ -173,6 +173,6 @@ body {
     transform: translate(-9rem, -2.3rem);
   }
   100% {
-    transform: translate(90rem, -2.3rem);
+    transform: translate(110rem, -2.3rem);
   }
 }
